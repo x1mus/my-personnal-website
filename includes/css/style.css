@@ -48,19 +48,27 @@ body {
 	letter-spacing: 2px;
 }
 
+.navbar {
+	font-size: 1.5em;
+}
+
 .navbar a {
 	display: inline-block;
 	text-decoration: none;
 	color: var(--main-text-color);
-	font-size: 1.5em;
+	/*font-size: 1.5em;*/
 	letter-spacing: 3px;
-	margin-left: 20px;
+	margin-right: 20px;
 	vertical-align: middle;
 	transform: perspective(1px) translateZ(0);
 	box-shadow: 0 0 1px rgba(0, 0, 0, 0);
 	position: relative;
 	overflow: hidden;
 	padding-bottom: 2px;
+}
+
+.navbar a.last {
+	margin-right: 0;
 }
 
 .navbar a:before {
@@ -83,6 +91,10 @@ body {
 .navbar a:hover:before, .navbar a:focus:before, .navbar a:active:before {
 	left: 0;
 	right: 0;
+}
+
+.navbar i {
+	margin-right: 7px;
 }
 
 /* ################################### */
