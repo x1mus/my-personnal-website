@@ -1,6 +1,6 @@
 :root {
 	--main-text-color: #0e8e5c;
-	--main-bg-color: black;
+	--main-bg-color: #171717;
 	--second-bg-color: #3D3D3D;
 	--main-font: 'Roboto', sans-serif;
 	--second-font: 'Bebas Neue', cursive;
@@ -56,7 +56,6 @@ body {
 	display: inline-block;
 	text-decoration: none;
 	color: var(--main-text-color);
-	/*font-size: 1.5em;*/
 	letter-spacing: 3px;
 	margin-right: 20px;
 	vertical-align: middle;
@@ -90,7 +89,7 @@ body {
 
 .navbar a:hover:before, .navbar a:focus:before, .navbar a:active:before {
 	left: 0;
-	right: 0;
+	right: 3px;
 }
 
 .navbar i {
@@ -106,11 +105,25 @@ body {
 	box-shadow: 0px -10px 35px 15px rgba(0,0,0,0.75);
 }
 
+
+/* ################################### */
+/* ############### MAIN ############## */
+/* ################################### */
+
 .main_content {
 	flex-grow: 1;
+	background-color: var(--main-bg-color);
 }
+
+
+/* ################################### */
+/* ############## FOOTER ############# */
+/* ################################### */
 
 .footer {
 	height: 100px;
-	background-color: black;
+	background-color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
