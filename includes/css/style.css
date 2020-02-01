@@ -87,7 +87,7 @@ body {
 	transition-timing-function: ease-out;
 }
 
-.navbar a:hover:before, .navbar a:focus:before, .navbar a:active:before {
+.navbar a:hover:before, .navbar a.active:before {
 	left: 0;
 	right: 3px;
 }
