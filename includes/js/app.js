@@ -3,10 +3,10 @@ $(document).ready(function() {
 	$('#main').load('home.html');
 
 	// For each link in the navigation bar when clicked
-	$('.navbar > div').on('click', function () {
+	$('.navbar__tab').on('click', function () {
 		// We add the class .active to the link that is clicked and remove it from the others
-    	$(this).children('a').addClass('active')
-    	$(this).siblings('div').find('a').removeClass('active');
+    	$(this).addClass('navbar__tab--active')
+    	$(this).siblings('.navbar__tab').removeClass('navbar__tab--active');
 
     	// Then we load the correct page with help of the id of that link
     	$('#main').load($(this).children('a').attr('id') + '.html');
