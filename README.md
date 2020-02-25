@@ -17,7 +17,7 @@ I'm using [SourceTree](https://www.sourcetreeapp.com) for versioning.
 ## Authors
 * **Laenen Maximilien** - *Creator of the site*
 
-###### Contributors :
+### Contributors :
 * **Nurul Ilma** - *Design of the site*
 
 ## License
