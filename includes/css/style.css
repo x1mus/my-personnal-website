@@ -1,6 +1,5 @@
 *, *::before, *::after {
 	box-sizing: border-box;
-	font-family: 'Questrial';
 }
 
 /* * {
@@ -11,6 +10,7 @@
 	--main-bg-color: #1F1F1D;
 	--main-txt-color: white;
 	--green-color: #718667;
+	--main-font: 'Questrial';
 }
 
 /*
@@ -48,6 +48,15 @@ body {
 	grid-area: main;
 }
 
+@media screen and (max-width: 700px) {
+	.grid {
+		grid-template-areas: 
+		"header"
+		"main"
+		"navbar";
+	}
+}
+
 /*
 * === NAVIGATION BAR ===
 */
@@ -83,8 +92,8 @@ body {
 	border-radius: 4px;
 	-webkit-transition-property: left, right;
 	transition-property: left, right;
-	-webkit-transition-duration: 0.5s;
-	transition-duration: 0.5s;
+	-webkit-transition-duration: 0.3s;
+	transition-duration: 0.3s;
 	-webkit-transition-timing-function: ease-out;
 	transition-timing-function: ease-out;
 }
@@ -105,9 +114,53 @@ body {
 
 .navbar__links {
 	color: var(--main-txt-color);
+	font-family: var(--main-font);
 	text-decoration: none;
 	font-size: 18px;
 	display: block;
 	text-align: center;
 	outline: none;
+}
+
+.navbar__links i {
+	display: none;
+}
+
+@media screen and (max-width: 700px) {
+	.navbar {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 55px;
+		padding-top: 10px;
+		justify-content: space-between;
+	}
+
+	.navbar__tab::before {
+		display: none;
+	}
+
+	@keyframes hoverColor {
+		to {color: var(--green-color);}
+	}
+
+	.navbar__tab:hover .navbar__links {
+		animation-name: hoverColor;
+		animation-duration: 0.3s;
+		animation-fill-mode: forwards;
+	}
+
+	.navbar__tab--active .navbar__links {
+		color: var(--green-color);
+	}
+
+	.navbar__links {
+		font-size: 15px;
+	}
+
+	.navbar__links i {
+		display: block;
+		margin-bottom: 5px;
+	}
 }
