@@ -9,7 +9,7 @@ If you want to contact her, here's two places where you can find her :
 * [Instagram](https://www.instagram.com/nurulilmaan/?hl=fr)
 
 ## Built with
-Nothing else but my own hands ! Here's just to library that I have been using : [jQuery](https://jquery.com) / [FontAwesome](https://fontawesome.com)
+Nothing else but my own hands ! Here's just two library that I have been using : [jQuery](https://jquery.com) / [FontAwesome](https://fontawesome.com)
 
 ## Versioning
 I'm using [SourceTree](https://www.sourcetreeapp.com) for versioning.
