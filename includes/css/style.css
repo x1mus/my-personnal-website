@@ -4,18 +4,51 @@
 
 /* * {
 	border: 1px solid black;
-}
- */
+} */
+
 :root {
 	--main-bg-color: #1F1F1D;
 	--second-bg-color: #2B2B29;
+	--console-bg-color: #191919;
 	--main-txt-color: white;
 	--green-color: #718667;
+	--orange-color: #EB5C25;
 	--main-font: 'Questrial';
+	--console-font: 'Consolas';
+	--twitter-color: #1da0f2;
+	--insta-color: #DD2A7B;
+	--github-color: #333333;
+	--codepen-color: #000000;
+	--linkedin-color: #0077b5;
 }
 
 @keyframes hoverColor {
 	to {color: var(--green-color);}
+}
+
+@keyframes hoverColor--twitter {
+	to {color: var(--twitter-color);}
+}
+
+@keyframes hoverColor--insta {
+	to {color: var(--insta-color);}
+}
+
+@keyframes hoverColor--github {
+	to {color: var(--github-color);}
+}
+
+@keyframes hoverColor--codepen {
+	to {color: var(--codepen-color);}
+}
+
+@keyframes hoverColor--linkedin {
+	to {color: var(--linkedin-color);}
+}
+
+.container {
+	background-color: var(--second-bg-color);
+	border-radius: 10px;
 }
 
 /*
@@ -61,6 +94,7 @@ body {
 		"navbar"
 		"main";
 		grid-template-columns: 1fr;
+		margin: 0;
 	}
 }
 
@@ -70,6 +104,7 @@ body {
 		"header"
 		"main"
 		"navbar";
+		margin-bottom: 40px;
 	}
 }
 
@@ -187,10 +222,8 @@ body {
 */
 
 .portrait {
-	background-color: var(--second-bg-color);
 	height: 380px;
 	margin-bottom: 40px;
-	border-radius: 10px;
 	padding-top: 35px;
 }
 
@@ -224,9 +257,28 @@ body {
 }
 
 .portrait__social a:hover {
-	animation-name: hoverColor;
 	animation-duration: 0.3s;
 	animation-fill-mode: forwards;
+}
+
+.portrait__social a.portrait__social--twitter:hover {
+	animation-name: hoverColor--twitter;
+}
+
+.portrait__social a.portrait__social--insta:hover {
+	animation-name: hoverColor--insta;
+}
+
+.portrait__social a.portrait__social--github:hover {
+	animation-name: hoverColor--github;
+}
+
+.portrait__social a.portrait__social--codepen:hover {
+	animation-name: hoverColor--codepen;
+}
+
+.portrait__social a.portrait__social--linkedin:hover {
+	animation-name: hoverColor--linkedin;
 }
 
 .portrait__social i {
@@ -235,11 +287,9 @@ body {
 }
 
 .description {
-	background-color: var(--second-bg-color);
 	font-family: var(--main-font);
 	color: var(--main-txt-color);
 	height: 300px;
-	border-radius: 10px;
 	padding: 35px 50px;
 }
 
@@ -287,6 +337,7 @@ body {
 		height: auto;
 		padding-bottom: 35px;
 		margin-bottom: 0;
+		border-radius: 0;
 	}
 
 	.portrait__name {
@@ -303,5 +354,48 @@ body {
 
 	.description {
 		display: none;
+	}
+}
+
+/*
+* === HOME PAGE ===
+*/
+
+.cv {
+	font-family: var(--console-font);
+	color: var(--main-txt-color);
+	text-align: center;
+}
+
+.cv__title {
+	line-height: 28px;
+}
+
+.cv__content {
+	background-color: var(--console-bg-color);
+	text-align: left;
+	padding: 15px 50px;
+	width: 100%;
+	white-space: nowrap;
+}
+
+.cv__content--greentxt {
+	color: var(--green-color);
+}
+
+.cv__content--orangetxt {
+	color: var(--orange-color);
+}
+
+@media screen and (max-width: 1300px) {
+	.cv {
+		margin-left: 35px;
+		margin-right: 35px;
+	}
+}
+
+@media screen and (max-width: 700px) {
+	.cv {
+		margin: 0;
 	}
 }
