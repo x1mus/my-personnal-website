@@ -8,7 +8,13 @@ $(document).ready(function() {
     	$(this).addClass('navbar__tab--active')
     	$(this).siblings('.navbar__tab').removeClass('navbar__tab--active');
 
+    	let currentPage = this;
+
     	// Then we load the correct page with help of the id of that link
-    	$('#main').load($(this).children('a').attr('id') + '.html');
+    	$('#main').fadeOut(function() {
+    		$('#main').load($(currentPage).children('a').attr('id') + '.html', function() {
+    			$('#main').fadeIn();
+    		});
+    	});
     });
 });

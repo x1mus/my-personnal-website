@@ -2,10 +2,6 @@
 	box-sizing: border-box;
 }
 
-/* * {
-	border: 1px solid black;
-} */
-
 :root {
 	--main-bg-color: #1F1F1D;
 	--second-bg-color: #2B2B29;
@@ -44,6 +40,13 @@
 
 @keyframes hoverColor--linkedin {
 	to {color: var(--linkedin-color);}
+}
+
+@keyframes formButtonHover {
+	to {
+		background-color: var(--console-bg-color);
+		color: var(--main-txt-color);
+	}
 }
 
 .container {
@@ -233,6 +236,7 @@ body {
 	letter-spacing: 2px;
 	font-size: 1.5em;
 	text-align: center;
+	font-weight: normal;
 }
 
 .portrait__picture {
@@ -304,6 +308,10 @@ body {
 	line-height: 130%;
 	letter-spacing: 1px;
 }
+
+/*
+* -- Short information media queries --
+*/
 
 @media screen and (max-width: 1500px) {
 	.portrait {
@@ -387,6 +395,10 @@ body {
 	color: var(--orange-color);
 }
 
+/*
+* -- Home page media queries --
+*/
+
 @media screen and (max-width: 1300px) {
 	.cv {
 		margin-left: 35px;
@@ -397,5 +409,127 @@ body {
 @media screen and (max-width: 700px) {
 	.cv {
 		margin: 0;
+	}
+}
+
+/*
+* === CONTACT PAGE ===
+*/
+
+.contact, .form__input, .form__textarea {
+	font-family: var(--main-font);
+}
+
+.contact {
+	color: white;
+	padding: 60px 75px;
+}
+
+.contact__title {
+	margin: 0;
+	font-weight: normal;
+	font-size: 35px;
+}
+
+.contact__text {
+	margin: 15px 0 30px 0;
+}
+
+.form {
+	display: grid;
+	grid-template-areas: 
+		"lastName firstName"
+		"mail     mail"
+		"message  message"
+		".        button";
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 20px;
+}
+
+.form__input, .form__textarea {
+	background-color: var(--console-bg-color);
+	color: var(--green-color);
+	border: none;
+	display: block;
+	width: 100%;
+	border-radius: 10px;
+	outline: none;
+	padding-left: 25px;
+	padding-right: 25px;
+	letter-spacing: 2px;
+}
+
+.form__input::placeholder, .form__textarea::placeholder {
+	color: var(--green-color);
+}
+
+.form__input {
+	line-height: 50px;
+}
+
+.form__textarea {
+	resize: vertical;
+	padding-top: 17px;
+	min-height: 200px;
+}
+
+.form__input--lastName {
+	grid-area: lastName;
+
+}
+
+.form__input--firstName {
+	grid-area: firstName;
+}
+
+.form__input--mail {
+	grid-area: mail;
+}
+
+.form__input--message {
+	grid-area: message;
+}
+
+.form__button {
+	grid-area: button;
+	background-color: var(--green-color);
+	font-family: var(--main-font);
+	line-height: 50px;
+	font-size: 20px;
+	border: 0;
+	border-radius: 10px;
+	max-width: 150px;
+	min-width: 150px;
+	cursor: pointer;
+	justify-self: end;
+}
+
+.form__button:hover {
+	animation-name: formButtonHover;
+	animation-duration: 0.3s;
+	animation-fill-mode: forwards;
+}
+
+@media screen and (max-width: 1300px) {
+	.contact {
+		margin-left: 35px;
+		margin-right: 35px;
+	}
+}
+
+@media screen and (max-width: 700px) {
+	.form {
+		grid-template-areas: 
+		"lastName"
+		"firstName"
+		"mail"
+		"message"
+		"button";
+		grid-template-columns: 1fr;
+	}
+
+	.contact {
+		margin: 0;
+		padding: 60px 40px;
 	}
 }

@@ -1,1 +1,14 @@
-<div>contact</div>
+<div class="container contact">
+	<h2 class="contact__title">Contact</h2>
+	<p class="contact__text">
+		Via ce formulaire, vous pouvez me contacter quelle que soit la raison de votre requête. Je me ferai un plaisir d'y répondre dans les plus brefs délais.<br>
+		Mon profil vous intéresse ? Vous êtes sur la bonne page !
+	</p>
+	<form class="form" id="form" action="url" method="post">
+		<input class="form__input form__input--lastName" type="text" id="lastName" name="lastName" placeholder="Nom" required>
+		<input class="form__input form__input--firstName" type="text" id="firstName" name="firstName" placeholder="Prénom" required>
+		<input class="form__input form__input--mail" type="text" id="mail" name="mail" placeholder="E-mail" required>
+		<textarea class="form__textarea  form__input--message" id="message" name="message" placeholder="Message"></textarea>
+		<button class="form__button" type="submit">Envoyer</button>
+	</form>
+</div>
