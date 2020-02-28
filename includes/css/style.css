@@ -369,17 +369,17 @@ body {
 * === HOME PAGE ===
 */
 
-.cv {
+.home {
 	font-family: var(--console-font);
 	color: var(--main-txt-color);
 	text-align: center;
 }
 
-.cv__title {
+.home__title {
 	line-height: 28px;
 }
 
-.cv__content {
+.home__content {
 	background-color: var(--console-bg-color);
 	text-align: left;
 	padding: 15px 50px;
@@ -387,11 +387,11 @@ body {
 	white-space: nowrap;
 }
 
-.cv__content--greentxt {
+.home__content--greentxt {
 	color: var(--green-color);
 }
 
-.cv__content--orangetxt {
+.home__content--orangetxt {
 	color: var(--orange-color);
 }
 
@@ -400,14 +400,14 @@ body {
 */
 
 @media screen and (max-width: 1300px) {
-	.cv {
+	.home {
 		margin-left: 35px;
 		margin-right: 35px;
 	}
 }
 
 @media screen and (max-width: 700px) {
-	.cv {
+	.home {
 		margin: 0;
 	}
 }
@@ -452,8 +452,8 @@ body {
 	border: none;
 	display: block;
 	width: 100%;
-	border-radius: 10px;
 	outline: none;
+	border-radius: 10px;
 	padding-left: 25px;
 	padding-right: 25px;
 	letter-spacing: 2px;
@@ -475,7 +475,6 @@ body {
 
 .form__input--lastName {
 	grid-area: lastName;
-
 }
 
 .form__input--firstName {
@@ -488,6 +487,10 @@ body {
 
 .form__input--message {
 	grid-area: message;
+}
+
+.form__element--notvalid {
+	border: 1px solid var(--orange-color);
 }
 
 .form__button {
@@ -514,6 +517,7 @@ body {
 	.contact {
 		margin-left: 35px;
 		margin-right: 35px;
+		margin-bottom: 30px;
 	}
 }
 
