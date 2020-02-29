@@ -19,6 +19,7 @@ I'm using [SourceTree](https://www.sourcetreeapp.com) for versioning.
 
 ### Contributors :
 * **Nurul Ilma** - *Design of the site*
+* **Michaux Clément** - *Help with the back-end of the contact page*
 
 ## License
 This project is licensed under the **CC-BY license** - see more information [HERE](https://creativecommons.org/licenses/by/2.0/be/deed.en)

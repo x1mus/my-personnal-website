@@ -1,3 +1,4 @@
+<script src="https://www.google.com/recaptcha/api.js"></script>
 <div id="contact" class="container contact">
 	<h2 class="contact__title">Contact</h2>
 	<p class="contact__text">
@@ -9,6 +10,12 @@
 		<input class="form__input form__input--firstName" type="text" id="firstName" name="firstName" placeholder="Prénom">
 		<input class="form__input form__input--mail" type="text" id="mail" name="mail" placeholder="E-mail">
 		<textarea class="form__textarea  form__input--message" id="message" name="message" placeholder="Message"></textarea>
-		<button class="form__button" type="submit">Envoyer</button>
+		<div class="form__submition">
+			<div class="form__submition--content">
+				<div class="g-recaptcha" data-sitekey="6Lc9ed0UAAAAAAtlO5cut2bVL87EtiYcC8YLF3kg" data-theme="dark"></div>
+				<button class="form__button" type="submit">Envoyer</button>
+			</div>
+			<div class="form__message"></div>
+		</div>
 	</form>
 </div>

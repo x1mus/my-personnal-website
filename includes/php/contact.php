@@ -1,12 +1,13 @@
 <?php
-    if(isset($_POST['lastName']) && isset($_POST['firstName']) && isset($_POST['mail']) && isset($_POST['message'])) {
+    if(isset($_POST['lastName']) && isset($_POST['firstName']) && isset($_POST['mail']) && isset($_POST['message']) && isset($_POST['captcha'])) {
         
         $lastName = htmlspecialchars($_POST['lastName']);
         $firstName = htmlspecialchars($_POST['firstName']);
         $mail = htmlspecialchars($_POST['mail']);
         $message = htmlspecialchars($_POST['message']);
+        $reCaptchaReponse = $_POST['captcha'];
         
-        if( (!empty($lastName) || $lastName == "0") && (!empty($firstName) || $firstName == "0") && (!empty($mail) || $mail == "0") && (!empty($message) || $message == "0") ) {
+        if( (!empty($lastName) || $lastName == "0") && (!empty($firstName) || $firstName == "0") && (!empty($mail) || $mail == "0") && (!empty($message) || $message == "0")) {
             
             if(filter_var($mail, FILTER_VALIDATE_EMAIL)) {
 
@@ -16,10 +17,19 @@
                 
                 $to = 'laenen.maximilien@outlook.com';
                 $subject = "Maximilien Laenen - Portfolio";
+                
+                require 'recaptcha.php';
+                $captcha = new Recaptcha('my_private_key');
               
-              
-                mail($to, $subject, $message, $headers);
-                echo "Message envoyé";
+                if($captcha->checkCode($reCaptchaReponse) === false) {
+                    echo "Captcha invalide";
+                } else {
+                    if(mail($to, $subject, $message, $headers)) {
+                        echo "Message envoyé";
+                    } else {
+                        echo "Erreur du serveur SMTP";
+                    }
+                }
 
             } else {
                 echo "L'email est invalide";

@@ -12,18 +12,22 @@ $(document).ready(function() {
             const isFirstName = namesRegex.test($('.form__input--firstName').val());
             const isMail = mailRegex.test($('.form__input--mail').val());
 
-            console.log(isLastName, isFirstName, isMail);
-
+            $('.form__message').html('');
             $('.form__input, .form__textarea').removeClass('form__element--notvalid');
             if(isLastName && isFirstName && isMail && $('.form__textarea').val() != '') {
                 contactPost();
             } else {
+                let errorMessage;
+                let i = 0;
+
                 if(!isLastName) {
                     notValidField($('.form__input--lastName'));
+                    i = true;
                 }
 
                 if(!isFirstName) {
                     notValidField($('.form__input--firstName'));
+                    i = true;
                 }
 
                 if(!isMail) {
@@ -32,7 +36,16 @@ $(document).ready(function() {
 
                 if($('.form__textarea').val() == '') {
                     notValidField($('.form__textarea'));
+                     i = true;
                 }
+
+                if(i) {
+                    errorMessage = 'Veuillez remplir tous les champs';
+                } else {
+                    errorMessage = 'L\'e-mail est invalide';
+                }
+
+                $('.form__message').html(errorMessage);
             }
 
             e.preventDefault();

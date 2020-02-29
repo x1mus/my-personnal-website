@@ -4,37 +4,35 @@ function contactPost() {
     let mail = $('.form__input--mail').val();
     let message = $('.form__textarea').val();
     let action = $('#form').attr('action');
+    let captcha = grecaptcha.getResponse();
 
     $.ajax({
         url: action,
-        method: "POST",
+        method: 'POST',
         cache: false,
 
         data: {
             lastName : lastName,
             firstName : firstName,
             mail : mail,
-            message : message
+            message : message,
+            captcha : captcha
         },
 
         beforeSend: function() {
-            console.log("load"); 
+            console.log('load'); 
         },
 
         success: function(reponse) {
-            if(reponse == "Veuillez remplir tous les champs") {
-                alert(reponse);
-            } else if(reponse == "L'email est invalide") {
-                alert(reponse);
-            } else if(reponse == "Message envoyé") {
-                alert(reponse);
-            } else {
-                alert("Erreur inconnue");
+            $('.form__message').html(reponse);
+            
+            if(reponse == 'Message envoyé') {
+                $('.form__message').css('color', 'var(--green-color)');
             }
         },
 
         error: function() {
-            alert("Erreur de communication avec le serveur");
+            alert('Erreur de communication avec le serveur');
         }
     });
 }

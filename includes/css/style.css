@@ -2,6 +2,14 @@
 	box-sizing: border-box;
 }
 
+@font-face {
+	font-family: '3270_narrow';
+	src: url('../font/3270_narrow.eot');
+	src: local('☺'), url('../font/3270_narrow.woff') format('woff'), url('../font/3270_narrow.ttf') format('truetype'), url('../font/3270_narrow.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
 :root {
 	--main-bg-color: #1F1F1D;
 	--second-bg-color: #2B2B29;
@@ -10,7 +18,7 @@
 	--green-color: #718667;
 	--orange-color: #EB5C25;
 	--main-font: 'Questrial';
-	--console-font: 'Consolas';
+	--console-font: '3270_narrow';
 	--twitter-color: #1da0f2;
 	--insta-color: #DD2A7B;
 	--github-color: #333333;
@@ -385,6 +393,8 @@ body {
 	padding: 15px 50px;
 	width: 100%;
 	white-space: nowrap;
+	line-height: 18px;
+	letter-spacing: 1px;
 }
 
 .home__content--greentxt {
@@ -423,6 +433,7 @@ body {
 .contact {
 	color: white;
 	padding: 60px 75px;
+	position: relative;
 }
 
 .contact__title {
@@ -441,7 +452,7 @@ body {
 		"lastName firstName"
 		"mail     mail"
 		"message  message"
-		".        button";
+		".        submition";
 	grid-template-columns: 1fr 1fr;
 	grid-gap: 20px;
 }
@@ -493,24 +504,41 @@ body {
 	border: 1px solid var(--orange-color);
 }
 
+.form__submition {
+	grid-area: submition;
+	justify-self: end;
+	text-align: center;
+}
+
+.form__submition--content {
+	display: flex;
+	align-items: center;
+}
+
 .form__button {
-	grid-area: button;
 	background-color: var(--green-color);
 	font-family: var(--main-font);
 	line-height: 50px;
+	max-height: 52px;
 	font-size: 20px;
 	border: 0;
 	border-radius: 10px;
 	max-width: 150px;
 	min-width: 150px;
 	cursor: pointer;
-	justify-self: end;
+	outline: none;
+	margin-left: 10px;
 }
 
 .form__button:hover {
 	animation-name: formButtonHover;
 	animation-duration: 0.3s;
 	animation-fill-mode: forwards;
+}
+
+.form__message {
+	color: var(--orange-color);
+	margin-top: 10px;
 }
 
 @media screen and (max-width: 1300px) {
@@ -528,7 +556,7 @@ body {
 		"firstName"
 		"mail"
 		"message"
-		"button";
+		"submition";
 		grid-template-columns: 1fr;
 	}
 
