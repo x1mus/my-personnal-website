@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	function notValidField(element) {
+    function notValidField(element) {
         element.addClass('form__element--notvalid');
     }
 
@@ -52,8 +52,18 @@ $(document).ready(function() {
         });
     }
 
-    // Loading of the default page of the site.
-    $('#main').load('home.html');
+    if (window.location.hash == '#portfolio') {
+        $('#main').load('portfolio.html');
+    } else if (window.location.hash == '#blog') {
+        $('#main').load('blog.html');
+    } else if (window.location.hash == '#contact') {
+        $('#main').load('contact.html');
+    } else {
+        $('#main').load('home.html');
+    }
+
+    $('[href="' + String(window.location.hash) + '"]').parent().addClass('navbar__tab--active');
+    $('[href="' + String(window.location.hash) + '"]').parent().siblings('.navbar__tab').removeClass('navbar__tab--active');
 
 	// For each link in the navigation bar when clicked
 	$('.navbar__tab').on('click', function () {
@@ -64,10 +74,10 @@ $(document).ready(function() {
         $(this).siblings('.navbar__tab').removeClass('navbar__tab--active');
 
         // If the page asked is already loaded
-        if ($(currentPage).children('a').attr('id') != $('#main').children('div').attr('id')) {
+        if ($(currentPage).children('a').attr('href').slice(1) != $('#main').children('div').attr('id')) {
             // Then we load the correct page with help of the id of that link
             $('#main').fadeOut(function() {
-                $('#main').load($(currentPage).children('a').attr('id') + '.html', function() {
+                $('#main').load($(currentPage).children('a').attr('href').slice(1) + '.html', function() {
                     $('#main').fadeIn();
                     
                     isMyFormValid();

@@ -1,3 +1,11 @@
+function resetForm() {
+    $('.form__input--lastName').val('');
+    $('.form__input--firstName').val('');
+    $('.form__input--mail').val('');
+    $('.form__textarea').val('');
+    grecaptcha.reset();
+}
+
 function contactPost() {
     let lastName = $('.form__input--lastName').val();
     let firstName = $('.form__input--firstName').val();
@@ -29,6 +37,8 @@ function contactPost() {
             if(reponse == 'Message envoyé') {
                 $('.form__message').css('color', 'var(--green-color)');
             }
+
+            resetForm();
         },
 
         error: function() {
