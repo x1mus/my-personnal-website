@@ -57,7 +57,9 @@ $(document).ready(function() {
     } else if (window.location.hash == '#blog') {
         $('#main').load('blog.html');
     } else if (window.location.hash == '#contact') {
-        $('#main').load('contact.html');
+        $('#main').load('contact.html', function() {
+            isMyFormValid();
+        });
     } else {
         $('#main').load('home.html');
     }
@@ -79,7 +81,7 @@ $(document).ready(function() {
             $('#main').fadeOut(function() {
                 $('#main').load($(currentPage).children('a').attr('href').slice(1) + '.html', function() {
                     $('#main').fadeIn();
-                    
+
                     isMyFormValid();
                 });
             });
