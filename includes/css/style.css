@@ -18,6 +18,7 @@
 	--green-color: #718667;
 	--orange-color: #EB5C25;
 	--main-font: 'Questrial';
+	--second-font: 'Roboto';
 	--console-font: '3270_narrow';
 	--twitter-color: #1da0f2;
 	--insta-color: #DD2A7B;
@@ -426,6 +427,51 @@ body {
 }
 
 /*
+* === BLOG PAGE ===
+*/
+
+.blog {
+	font-family: var(--second-font);
+	color: var(--main-txt-color);
+	padding: 30px;
+	margin-bottom: 15px;
+	cursor: pointer;
+}
+
+.blog__title {
+	margin: 0;
+	font-size: 27px;
+	font-weight: 500;
+	color: var(--green-color);
+	line-height: 32px;
+	margin-bottom: 5px;
+}
+
+.blog__info {
+	display: flex;
+}
+
+.blog__date {
+	font-family: var(--main-font);
+	font-size: 16px;
+	line-height: 17px;
+}
+
+.blog__tag {
+	font-family: var(--main-font);
+	color: var(--orange-color);
+	font-size: 16px;
+	line-height: 17px;
+	margin-left: 20px;
+}
+
+.blog__hook {
+	margin: 20px 0 0 0;
+	font-size: 14px;
+	letter-spacing: 1px;
+}
+
+/*
 * === CONTACT PAGE ===
 */
 
@@ -452,10 +498,10 @@ body {
 .form {
 	display: grid;
 	grid-template-areas: 
-		"lastName firstName"
-		"mail     mail"
-		"message  message"
-		".        submition";
+		"lastName  firstName"
+		"mail      mail"
+		"message   message"
+		"submition submition";
 	grid-template-columns: repeat(2, 1fr);
 	grid-gap: 20px;
 }
@@ -543,6 +589,10 @@ body {
 	color: var(--orange-color);
 	margin-top: 10px;
 }
+
+/*
+* -- Contact page media queries --
+*/
 
 @media screen and (max-width: 1300px) {
 	.contact {
