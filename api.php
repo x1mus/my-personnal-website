@@ -1,10 +1,6 @@
 <?php
     require 'includes/php/connect_db.php';
 
-   /*=============================================
-    =                   MAIN                      =
-    =============================================*/
-
     $selectArticle = $bdd->query('SELECT * FROM BLOG');
 
     while($reponseSelectArticle = $selectArticle->fetch()) {

@@ -18,33 +18,44 @@ $(document).ready(function() {
                 contactPost();
             } else {
                 let errorMessage;
-                let i = 0;
+                let error = [];
 
                 if(!isLastName) {
                     notValidField($('.form__input--lastName'));
-                    i = true;
+                    error.push('le nom');
                 }
 
                 if(!isFirstName) {
                     notValidField($('.form__input--firstName'));
-                    i = true;
+                    error.push('le prénom');
                 }
 
                 if(!isMail) {
                     notValidField($('.form__input--mail'));
+                    error.push('l\'email');
                 }
 
                 if($('.form__textarea').val() == '') {
                     notValidField($('.form__textarea'));
-                     i = true;
+                    error.push('le message');
+                    
                 }
 
-                if(i) {
-                    errorMessage = 'Veuillez remplir tous les champs';
-                } else {
-                    errorMessage = 'L\'e-mail est invalide';
+                switch (error.length) {
+                    case 1 :
+                        errorMessage = error + ' est invalide';
+                        break;
+                    case 2 :
+                        errorMessage = error[0] + ' & ' + error[1] + ' sont invalides';
+                        break;
+                    case 3 :
+                        errorMessage = error[0] + ', ' + error[1] + ' & ' + error[2] + ' sont invalides';
+                        break;
+                    default :
+                        errorMessage = 'Les champs sont invalides';
                 }
 
+                errorMessage = errorMessage[0].toUpperCase() + errorMessage.slice(1);
                 $('.form__message').html(errorMessage);
             }
 
