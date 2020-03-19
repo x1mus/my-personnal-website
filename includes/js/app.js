@@ -66,9 +66,7 @@ $(document).ready(function() {
     if (window.location.hash == '#portfolio') {
         $('#main').load('portfolio.html');
     } else if (window.location.hash == '#blog') {
-        $('#main').load('blog.html', function() {
-            //getArticles();
-        });
+        $('#main').load('blog.html');
     } else if (window.location.hash == '#contact') {
         $('#main').load('contact.html', function() {
             isMyFormValid();

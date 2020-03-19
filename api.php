@@ -1,7 +1,10 @@
 <?php
     require 'includes/php/connect_db.php';
+    require 'includes/php/Parsedown.php';
+    require 'includes/php/ParsedownExtra.php';
 
-    $selectArticle = $bdd->query('SELECT * FROM BLOG');
+    $selectArticle = $bdd->query('SELECT * FROM blog');
+    $Extra = new ParsedownExtra();
 
     while($reponseSelectArticle = $selectArticle->fetch()) {
 
@@ -11,12 +14,14 @@
         $article['tag'] = htmlspecialchars($reponseSelectArticle['tag']);
         $article['hook'] = htmlspecialchars($reponseSelectArticle['hook']);
         $article['author'] = htmlspecialchars($reponseSelectArticle['author']);
-        $article['content'] = htmlspecialchars($reponseSelectArticle['content']);
+        
+        $article['content'] = $Extra->text(htmlspecialchars($reponseSelectArticle['content']));
 
         $arrayArticles[] = $article;
     }
 
     $selectArticle->closeCursor();
 
+    header('Content-Type: application/json');
     echo json_encode($arrayArticles);
 ?>
