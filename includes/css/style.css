@@ -93,6 +93,7 @@ body {
 
 .main {
 	grid-area: main;
+	min-width: 0;
 }
 
 /*
@@ -646,8 +647,12 @@ body {
 	color: var(--orange-color);
 }
 
-pre {
+.article__content pre {
 	overflow: auto;
+}
+
+.article__content a {
+	color: #3498db;
 }
 
 @media screen and (max-width: 1300px) {

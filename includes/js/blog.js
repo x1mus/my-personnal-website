@@ -46,6 +46,7 @@ $(function() {
 							$(this).empty();
 							$(this).append(
 								"<script src='includes/js/prism.js'></script>"
+								+ "<div id='blog'>"
 								+ "<div id='"
 									+ article.title
 								+ "'>"
@@ -75,6 +76,7 @@ $(function() {
 									+ "<div class='article__tag'>"
 										+ "CATEGORIE: " + article.tag
 									+ "</div>"
+								+ "</div>"
 								+ "</div>"
 								+ "</div>"
 							);
