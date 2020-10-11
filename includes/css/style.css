@@ -646,6 +646,10 @@ body {
 	color: var(--orange-color);
 }
 
+pre {
+	overflow: auto;
+}
+
 @media screen and (max-width: 1300px) {
 	#blog {
 		margin-left: 35px;

@@ -6,7 +6,7 @@ $(function() {
 
 		success: function(response) {
 			for(article of response) {
-				$('#blog').append(
+				$('#blog').prepend(
 					"<div class='container blog'>"
 						+ "<span class='blog__id'>"
 							+ article.id
@@ -40,7 +40,9 @@ $(function() {
 
 				for(article of response) {
 					if(article.id == articleId) {
+						console.log(article.id + " - " + articleId);
 						$('#main').fadeOut(function() {
+							console.log(article.id + " - " + articleId);
 							$(this).empty();
 							$(this).append(
 								"<script src='includes/js/prism.js'></script>"

@@ -1,10 +1,11 @@
 <?php
     require 'includes/php/connect_db.php';
     require 'includes/php/Parsedown.php';
-    require 'includes/php/ParsedownExtra.php';
 
     $selectArticle = $bdd->query('SELECT * FROM blog');
-    $Extra = new ParsedownExtra();
+    $Parsedown = new Parsedown();
+    $Parsedown->setSafeMode(true);
+    $Parsedown->setMarkupEscaped(true);
 
     while($reponseSelectArticle = $selectArticle->fetch()) {
 
@@ -15,7 +16,7 @@
         $article['hook'] = htmlspecialchars($reponseSelectArticle['hook']);
         $article['author'] = htmlspecialchars($reponseSelectArticle['author']);
         
-        $article['content'] = $Extra->text(htmlspecialchars($reponseSelectArticle['content']));
+        $article['content'] = $Parsedown->text($reponseSelectArticle['content']);
 
         $arrayArticles[] = $article;
     }

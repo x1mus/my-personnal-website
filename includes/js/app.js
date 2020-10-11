@@ -43,16 +43,16 @@ $(document).ready(function() {
 
                 switch (error.length) {
                     case 1 :
-                        errorMessage = error + ' est invalide';
-                        break;
+                    errorMessage = error + ' est invalide';
+                    break;
                     case 2 :
-                        errorMessage = error[0] + ' & ' + error[1] + ' sont invalides';
-                        break;
+                    errorMessage = error[0] + ' & ' + error[1] + ' sont invalides';
+                    break;
                     case 3 :
-                        errorMessage = error[0] + ', ' + error[1] + ' & ' + error[2] + ' sont invalides';
-                        break;
+                    errorMessage = error[0] + ', ' + error[1] + ' & ' + error[2] + ' sont invalides';
+                    break;
                     default :
-                        errorMessage = 'Les champs sont invalides';
+                    errorMessage = 'Les champs sont invalides';
                 }
 
                 errorMessage = errorMessage[0].toUpperCase() + errorMessage.slice(1);
@@ -102,37 +102,37 @@ $(document).ready(function() {
                             $(this).append(
                                 "<script src='includes/js/prism.js'></script>"
                                 + "<div id='"
-                                    + article.title
+                                + article.title
                                 + "'>"
                                 + "<div class='container article'>"
-                                    
-                                    + "<div class='article__header'>"
-                                        + "<h2 class='article__title'>"
-                                            + article.title
-                                        + "</h2>"
-                                        
-                                        + "<div class='article__date'>posté le "
-                                            + article.creation_date
-                                        + "</div>"
 
-                                        + "<div class='article__sharing'>"
-                                            + "<i class='fab fa-facebook'></i>"
-                                            + "<i class='fab fa-twitter'></i>"
-                                            + "<i class='fab fa-linkedin'></i>"
-                                            + "<i class='fas fa-link'></i>"
-                                        + "</div>"
-                                    + "</div>"
-                                    
-                                    + "<div class='article__content'>"
-                                        + article.content
-                                    + "</div>"
+                                + "<div class='article__header'>"
+                                + "<h2 class='article__title'>"
+                                + article.title
+                                + "</h2>"
 
-                                    + "<div class='article__tag'>"
-                                        + "CATEGORIE: " + article.tag
-                                    + "</div>"
+                                + "<div class='article__date'>posté le "
+                                + article.creation_date
+                                + "</div>"
+
+                                + "<div class='article__sharing'>"
+                                + "<i class='fab fa-facebook'></i>"
+                                + "<i class='fab fa-twitter'></i>"
+                                + "<i class='fab fa-linkedin'></i>"
+                                + "<i class='fas fa-link'></i>"
                                 + "</div>"
                                 + "</div>"
-                            );
+
+                                + "<div class='article__content'>"
+                                + article.content
+                                + "</div>"
+
+                                + "<div class='article__tag'>"
+                                + "CATEGORIE: " + article.tag
+                                + "</div>"
+                                + "</div>"
+                                + "</div>"
+                                );
                             $(this).fadeIn();
                         });
                     }
