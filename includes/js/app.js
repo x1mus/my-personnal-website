@@ -63,7 +63,94 @@ $(document).ready(function() {
         });
     }
 
-    if (window.location.hash == '#portfolio') {
+    function articleUrl(url) {
+        const found = [false];
+
+        $.ajax({
+            async: false,
+            url: 'api.php',
+            method: 'GET',
+            cache: false,
+
+            success: function(response) {
+                for(article of response) {
+                    if ('#' + article.title.toLowerCase().replace(/\s+/g, '-') == url) {
+                        found[0] = true;
+                    }
+                }
+            },
+
+            error: function() {
+                console.log('error');
+            }
+        });
+
+        return found;
+    }
+
+    function loadArticle(articleTitle) {
+        $.ajax({
+            url: 'api.php',
+            method: 'GET',
+            cache: false,
+
+            success: function(response) {
+                for(article of response) {
+                    if ('#' + article.title.toLowerCase().replace(/\s+/g, '-') == articleTitle) {
+                        $('#main').fadeOut(function() {
+                            $(this).empty();
+                            $(this).append(
+                                "<script src='includes/js/prism.js'></script>"
+                                + "<div id='"
+                                    + article.title
+                                + "'>"
+                                + "<div class='container article'>"
+                                    
+                                    + "<div class='article__header'>"
+                                        + "<h2 class='article__title'>"
+                                            + article.title
+                                        + "</h2>"
+                                        
+                                        + "<div class='article__date'>posté le "
+                                            + article.creation_date
+                                        + "</div>"
+
+                                        + "<div class='article__sharing'>"
+                                            + "<i class='fab fa-facebook'></i>"
+                                            + "<i class='fab fa-twitter'></i>"
+                                            + "<i class='fab fa-linkedin'></i>"
+                                            + "<i class='fas fa-link'></i>"
+                                        + "</div>"
+                                    + "</div>"
+                                    
+                                    + "<div class='article__content'>"
+                                        + article.content
+                                    + "</div>"
+
+                                    + "<div class='article__tag'>"
+                                        + "CATEGORIE: " + article.tag
+                                    + "</div>"
+                                + "</div>"
+                                + "</div>"
+                            );
+                            $(this).fadeIn();
+                        });
+                    }
+                }
+
+                $('a[href="#blog"]').parent().addClass('navbar__tab--active')
+                $('a[href="#blog"]').parent().siblings('.navbar__tab').removeClass('navbar__tab--active');
+            },
+
+            error: function() {
+                console.log('error');
+            }
+        });
+    }
+
+    if (articleUrl(window.location.hash)[0]) {
+        loadArticle(window.location.hash);
+    } else if (window.location.hash == '#portfolio') {
         $('#main').load('portfolio.html');
     } else if (window.location.hash == '#blog') {
         $('#main').load('blog.html');

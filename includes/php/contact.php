@@ -15,7 +15,7 @@
                 $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
                 $headers .= 'FROM:' . $mail;
                 
-                $to = 'laenen.maximilien@outlook.com';
+                $to = 'my_email';
                 $subject = "Maximilien Laenen - Portfolio";
                 
                 require 'recaptcha.php';
