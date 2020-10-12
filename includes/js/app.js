@@ -97,22 +97,23 @@ $(document).ready(function() {
             success: function(response) {
                 for(article of response) {
                     if ('#' + article.title.toLowerCase().replace(/\s+/g, '-') == articleTitle) {
+                        let articleToLoad = article;
                         $('#main').fadeOut(function() {
                             $(this).empty();
                             $(this).append(
                                 "<script src='includes/js/prism.js'></script>"
-                                + "<div id='"
-                                + article.title
+                                + "<div class='article__container' id='"
+                                + articleToLoad.title
                                 + "'>"
                                 + "<div class='container article'>"
 
                                 + "<div class='article__header'>"
                                 + "<h2 class='article__title'>"
-                                + article.title
+                                + articleToLoad.title
                                 + "</h2>"
 
                                 + "<div class='article__date'>posté le "
-                                + article.creation_date
+                                + articleToLoad.creation_date
                                 + "</div>"
 
                                 + "<div class='article__sharing'>"
@@ -124,11 +125,11 @@ $(document).ready(function() {
                                 + "</div>"
 
                                 + "<div class='article__content'>"
-                                + article.content
+                                + articleToLoad.content
                                 + "</div>"
 
                                 + "<div class='article__tag'>"
-                                + "CATEGORIE: " + article.tag
+                                + "CATEGORIE: " + articleToLoad.tag
                                 + "</div>"
                                 + "</div>"
                                 + "</div>"

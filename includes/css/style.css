@@ -656,7 +656,7 @@ body {
 }
 
 @media screen and (max-width: 1300px) {
-	#blog {
+	.article__container, .blog {
 		margin-left: 35px;
 		margin-right: 35px;
 	}
@@ -669,6 +669,11 @@ body {
 
 	.blog:hover {
 		transform: scale(1);
+	}
+
+	.article__container, .blog {
+		margin-left: 0;
+		margin-right: 0;
 	}
 }
 
