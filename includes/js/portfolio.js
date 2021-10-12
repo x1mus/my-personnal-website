@@ -1,6 +1,6 @@
 $(function() {
 	$.ajax({
-		url : 'https://api.github.com/users/maxbresil/repos',
+		url : 'https://api.github.com/users/x1mus/repos',
     	method : 'GET',
     	cache : false,
 
