@@ -10,7 +10,7 @@ $(function() {
         			"<a class='container project' href='" 
         			+ repository.html_url 
         			+ "' target='_blank'> <div class='project__image' style='background: url(includes/svg/"
-        			+ repository.language.toLowerCase()
+        			+ String(repository.language).toLowerCase()
         			+ ".svg) no-repeat'></div> <div class='project__title'>" 
         			+ repository.name 
         			+ "</div></a>"
